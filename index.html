@@ -1,0 +1,73 @@
+<div class="">
+    <input type="checkbox">
+    <label for=""></label>
+    <span class="checkmark"></span>
+    <span class="name"></span>
+
+
+    <style>
+        input[type="checkbox"]+label {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 2.8vh;
+        }
+
+        input[type="checkbox"]+label::after {
+            display: none;
+        }
+
+        input[type="checkbox"]+label .checkmark {
+            width: 2.8vh;
+            height: 2.8vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 6.1px;
+            background-color: #fff;
+            border: 2px solid #e1e7ec;
+            display: flex;
+            justify-content: center;
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+            width: 0.8vh;
+            height: 1.3vh;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .name {
+            margin-left: calc(var(--S) * 0.0177px);
+            font-size: calc(var(--S) * 0.00995555);
+            width: max-content;
+            color: #6e7a8a !important;
+        }
+
+        input[type="checkbox"]:checked+label::after {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked+label .checkmark {
+            width: 2.8vh;
+            height: 2.8vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 6.1px;
+            background-color: #46c1bd;
+        }
+
+        input[type="checkbox"]:checked+label .checkmark::after {
+            display: inline;
+        }
+    </style>
+</div>
