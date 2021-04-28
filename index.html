@@ -1,16 +1,23 @@
 <label class="custom-checkbox">
     <input type="checkbox" value="checkbox1">
-    <span>Checkbox</span>
+    <span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check"
+            class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor"
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+            </path>
+        </svg>
+    </span>
 </label>
 
 
 <style>
-    .custom-checkbox {
-        position: relative;
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 20px;
+    * {
+        transition: 0.5s;
+    }
+
+    .input {
+        display: none;
     }
 
     .custom-checkbox span {
@@ -21,6 +28,7 @@
         text-align: left;
     }
 
+    /* desmarcado: */
     .custom-checkbox span::before {
         content: "";
         display: block;
@@ -29,22 +37,28 @@
         height: 20px;
         top: 0;
         left: 0;
-        background: #fdfdfd;
-        border: 1px solid #e4e5e7;
-        @include vendorize(box-shadow, inset 2px 2px 0px 0px rgba(0, 0, 0, 0.1));
+        border-radius: 6.1px;
+        background-color: #fff;
+        border: 2px solid #e1e7ec;
     }
 
     .custom-checkbox span::after {
+        content: "";
         display: block;
         position: absolute;
         width: 20px;
         height: 20px;
         top: 0;
         left: 0;
-        font-size: 18px;
-        color: #0087b7;
-        line-height: 20px;
-        text-align: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 6.1px;
+        color: #aebecd;
+        border: 2px solid #e1e7ec;
+        @include vendorize(box-shadow, inset 2px 2px 0px 0px rgba(0, 0, 0, 0.1));
     }
 
     .custom-checkbox input[type="checkbox"] {
@@ -53,11 +67,27 @@
         position: absolute;
     }
 
-    .custom-checkbox input[type="checkbox"]:checked+span::after {
-        font-family: "FontAwesome";
-        content: "v";
-        background: #d44803;
+    svg {
+        display: none;
+        position: absolute;
+        width: 16px;
+        left: 4px;
+        z-index: 10;
+        top: 4px;
         color: #fff;
+    }
+
+    /* marcado */
+    .custom-checkbox input[type="checkbox"]:checked+span::after {
+        /* content: "v"; */
+        background: #46c1bd;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+    }
+
+    .custom-checkbox input[type="checkbox"]:checked+span svg {
+        display: inline;
     }
 </style>
 </div>
